@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Page404 from './components/page404';
+import { Routes, Route } from "react-router-dom";
+import MainPage from './pages/MainPage';
+import Post from './pages/PostPage';
+import Buy from './pages/BuyPage';
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="*" element={<Page404 />} />
+        <Route path="/post/:id" element={<Post />} />
+        <Route path="/home" element={<MainPage />} />
+        <Route path="/page404" element={<Page404 />} />
+        <Route path="/buy" element={<Buy />} />
+      </Routes>
+
+    </>
+  )
+};
+
+
+
+
 
 export default App;
